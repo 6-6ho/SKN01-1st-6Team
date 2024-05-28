@@ -110,35 +110,90 @@ class Ui:
 
         st.subheader("게시글 목록")
 
-    # 전국 자동차 등록 현황
+    ### 전국 자동차 등록 현황
     def show_car_registration_status(self):
-        st.title("전국 자동차 등록 현황")
-        st.write("여기는 전국 자동차 등록 현황 화면입니다.")
+        st.title("전국 자동차 등록 현황")        
         st.write("출처 : 통계청 KOSIS 공유서비스 OPEN API 데이터")
-
-        st.subheader("전국 시도별 승용차 등록 현황")        
+        st.write("")
+        st.write("")
+        st.write("")
+        # CAR
+        st.title("🚗")
+        st.subheader("전국 시도별 승용차 등록 현황 (단위: 대)")        
         car_data = self.load_car_data()
+        # 컬럼명 변경
+        car_data.rename(columns={
+            'district': '지역명',
+            'gov_car': '관용 승합차',
+            'private_car': '자가용 승합차',
+            'commercial_car': '영업용 승합차',
+            'total_car': '승합차 합계'
+        }, inplace=True)
+        # 특정 컬럼 제거
+        car_data.drop(columns=["id", "region_id"], inplace=True)        
         # 쿼리 결과 테이블 뿌려주기
-        st.dataframe(car_data)
-
-        st.subheader("전국 시도별 승합차 등록 현황")        
+        st.table(car_data)
+        st.write("")
+        st.write("")
+        st.write("")
+        # VAN
+        st.title("🚌")
+        st.subheader("전국 시도별 승합차 등록 현황 (단위: 대)")        
         van_data = self.load_van_data()
+        # 컬럼명 변경
+        van_data.rename(columns={
+            'district': '지역명',
+            'gov_van': '관용 승합차',
+            'private_van': '자가용 승합차',
+            'commercial_van': '영업용 승합차',
+            'total_van': '승합차 합계'
+        }, inplace=True)
+        # 특정 컬럼 제거
+        van_data.drop(columns=["id", "region_id"], inplace=True)
         # 쿼리 결과 테이블 뿌려주기
-        st.dataframe(van_data)
-
-        st.subheader("전국 시도별 화물차 등록 현황")        
+        st.table(van_data)
+        st.write("")
+        st.write("")
+        st.write("")
+        # TRUCK
+        st.title("🚜")
+        st.subheader("전국 시도별 화물차 등록 현황 (단위: 대)")        
         truck_data = self.load_truck_data()
+        # 컬럼명 변경
+        truck_data.rename(columns={
+            'district': '지역명',
+            'gov_truck': '관용 화물차',
+            'private_truck': '자가용 화물차',
+            'commercial_truck': '영업용 화물차',
+            'total_truck': '화물차 합계'
+        }, inplace=True)
+        # 특정 컬럼 제거
+        truck_data.drop(columns=["id", "region_id"], inplace=True)
         # 쿼리 결과 테이블 뿌려주기
-        st.dataframe(truck_data)
-
-        st.subheader("전국 시도별 특수차 등록 현황")        
+        st.table(truck_data)
+        st.write("")
+        st.write("")
+        st.write("")
+        # SPECIAL VEHICLE
+        st.title("🚕")
+        st.subheader("전국 시도별 특수차 등록 현황 (단위: 대)")        
         special_vehicle_data = self.load_special_vehicle_data()
+        # 컬럼명 변경
+        special_vehicle_data.rename(columns={
+            'district': '지역명',
+            'gov_special': '관용 특수차',
+            'private_special': '자가용 특수차',
+            'commercial_special': '영업용 특수차',
+            'total_special': '특수차 합계'
+        }, inplace=True)
+        # 특정 컬럼 제거
+        special_vehicle_data.drop(columns=["id", "region_id"], inplace=True)
         # 쿼리 결과 테이블 뿌려주기
-        st.dataframe(special_vehicle_data)
+        st.table(special_vehicle_data)
 
 
         
-
+    ### FAQ 화면
     def show_faq_system(self):
         st.title("FAQ 조회시스템")
         st.write("여기는 FAQ 조회시스템 화면입니다.")
