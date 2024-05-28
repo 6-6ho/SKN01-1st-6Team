@@ -10,11 +10,11 @@
     <div>
         <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white"/>
         <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=Selenium&logoColor=white"/>
+        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat&logo=VisualStudioCode&logoColor=white"/>
+        <br/>
         <img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=Discord&logoColor=white">
         <img src="https://img.shields.io/badge/Github-181717?style=flat&logo=Github&logoColor=white">
-        <br/>
-        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat&logo=VisualStudioCode&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=Selenium&logoColor=white"/>
         <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white"/>
     </div>
 </div>
@@ -22,27 +22,27 @@
 
 ---
 
-# 👋 시작하기 
+# 🤗 시작하기 
 
 이 프로젝트를 시작하려면 아래의 지침을 따르세요.
 
 
-## 프로젝트 클론
+## 1️⃣ 프로젝트 클론
 
 ```
 git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN01-1st-6Team.git
 cd SKN01-1st-6Team
 ```
+<br>
 
-
-## Requirements
+## 2️⃣ Requirements
 
 ```
 pip install -r requirements.txt
 ```
+<br>
 
-
-## 실행
+## 3️⃣ 실행
 
 ```
 if __name__ == "__main__":
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     # insert_db()
     Ui("Crawling Project (SKN01-1st-6Team)").run()
 ```
-주석을 제거하고 크롤링과 결과 파일들을 db에 넣는 과정을 진행해야합니다.
+❗ 주석을 제거하고 크롤링과 데이터베이스에 insert하는 과정을 진행해야합니다.<br>
 
 ```
 streamlit run runner.py
@@ -64,7 +64,7 @@ streamlit run runner.py
 ![ERD](img/ERD.png)
 
 
-## 테이블 설명
+## 🔍 테이블 설명
 
 1. **Region 테이블**:
    - **_id_**: 기본 키, 자동 증가
