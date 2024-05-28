@@ -8,7 +8,6 @@ Allow: /
 
 """
 
-import os
 import time
 import logging
 from selenium import webdriver
@@ -19,8 +18,10 @@ import xlsxwriter
 
 
 def faq_crawling():
-    # 상대 경로 설정
-    data_dir = r"../data"
+    # 로깅 설정
+    logging.basicConfig(
+        level=logging.INFO, format="%(asctime)s - %(level.levelname)s - %(message)s"
+    )
 
     # 크롬 드라이버 설정
     driver = webdriver.Chrome()
@@ -41,16 +42,6 @@ def faq_crawling():
             time.sleep(2)  # 페이지 로딩 대기
         except Exception as e:
             logging.error(f"페이지 {page_number}로 이동 실패: {e}")
-
-    # 중첩된 p 태그 처리 함수
-    def get_clean_content(elements):
-        content = []
-        for element in elements:
-            # 내부에 <p> 태그가 있는 경우 무시
-            if element.find_elements(By.TAG_NAME, "p"):
-                continue
-            content.append(element.text.strip())
-        return "\n\n".join(content)
 
     # FAQ 데이터 수집 함수
     def collect_faq_data():
@@ -82,12 +73,14 @@ def faq_crawling():
 
                         content_elements = WebDriverWait(driver, 10).until(
                             EC.presence_of_all_elements_located(
-                                (By.CSS_SELECTOR, ".board_contents p")
+                                (By.CLASS_NAME, "board_contents p")
                             )
                         )
 
                         title = title_element.text.strip()
-                        content = get_clean_content(content_elements)
+                        content = "\n".join(
+                            [element.text.strip() for element in content_elements]
+                        )
 
                         # '☞' 이후의 내용 제거
                         content = content.split("☞")[0].strip()
@@ -108,11 +101,10 @@ def faq_crawling():
         click_page(page_number)
         collect_faq_data()
 
-    # 데이터 디렉토리 생성
-    os.makedirs(data_dir, exist_ok=True)
-
     # 수집한 데이터를 XLSX 파일로 저장
-    xlsx_file_path = os.path.join(data_dir, "faq_data.xlsx")
+    xlsx_file_path = (
+        r"C:\Users\minkw\Desktop\workspace01\crawling_project\data\faq_data.xlsx"
+    )
 
     workbook = xlsxwriter.Workbook(xlsx_file_path)
     worksheet = workbook.add_worksheet()
