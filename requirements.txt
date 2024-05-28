@@ -9,3 +9,6 @@ selenium
 requests
 mysql-connector-python
 openpyxl
+seaborn
+plotly
+Pillow
