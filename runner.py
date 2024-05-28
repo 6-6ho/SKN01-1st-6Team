@@ -9,7 +9,7 @@ if __name__ == "__main__":
 
     ### 01 WEB CRAWLING :  통계청 KOSIS 공유서비스 OPEN API + Selenium
     # car_crawling.py
-    # sk_rent_faq_crawler.py
+    # faq_crawler.py
 
     # 02 DB 작업
     # db.py
@@ -20,4 +20,4 @@ if __name__ == "__main__":
     # faq_crawling()
     # insert_db()
 
-    Ui("Crawling Project (SKN01-1st-6Team)")
+    Ui("전국 자동차 등록 현황과 렌터카 FAQ 한 눈에 보기 👀")

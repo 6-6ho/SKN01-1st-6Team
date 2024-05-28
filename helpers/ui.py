@@ -66,8 +66,8 @@ class Ui:
         
    
         # with st.sidebar: 사이드바 페이지 전환
-        menu = option_menu(None, ["HOME", "전국 자동차 등록현황", "FAQ 조회시스템"],
-                            icons=['house', 'kanban', 'list-task'],
+        menu = option_menu(None, ["HOME", "CAR 현황", "FAQ 조회", "ERD"],
+                            icons=['house', 'kanban', 'list-task', "table"],
                             menu_icon="app-indicator", default_index=0, orientation="horizontal",
                             styles={
                                 "container": {"padding": "4!important", "background-color": "black"},
@@ -79,10 +79,12 @@ class Ui:
 
         if menu == "HOME":
             self.show_home()
-        elif menu == "전국 자동차 등록현황":
+        elif menu == "CAR 현황":
             self.show_car_registration_status()
-        elif menu == "FAQ 조회시스템":
+        elif menu == "FAQ 조회":
             self.show_faq_system()
+        elif menu == "ERD":
+            self.show_erd()
 
 
     ### HOME 화면    
@@ -863,19 +865,14 @@ class Ui:
         van_data['자가용 승합차'] = pd.to_numeric(van_data['자가용 승합차'], errors='coerce')
         van_data['영업용 승합차'] = pd.to_numeric(van_data['영업용 승합차'], errors='coerce')
         van_data['승합차 합계'] = pd.to_numeric(van_data['승합차 합계'], errors='coerce')
-
         # 데이터 확인
         # st.write("데이터 타입 확인:", van_data.dtypes)
 
         # 쿼리 결과 테이블 뿌려주기
         st.table(van_data)
-
-        # 막대 차트
-        # st.subheader("영업용 승합차 수 (막대 차트)")
-        # fig, ax = plt.subplots()
-        # sns.barplot(x='지역명', y='승합차 합계', data=van_data, ax=ax)
-        # plt.xticks(rotation=90)
-        # st.pyplot(fig)        
+        st.write("")
+        st.write("")
+        st.write("")             
         
         ### TRUCK
         st.title("🚜")
@@ -896,6 +893,7 @@ class Ui:
         st.write("")
         st.write("")
         st.write("")
+        
         ### SPECIAL VEHICLE
         st.title("🚕")
         st.subheader("전국 시도별 특수차 등록 현황 (단위: 대)")        
@@ -1071,16 +1069,38 @@ class Ui:
         # Streamlit에서 HTML 코드 렌더링
         st.markdown(html_code, unsafe_allow_html=True)
 
+    ### ERD
+    def show_erd(self):
+        # 제목 설정
+        st.title("E-R Diagram Viewer")
+
+        # 이미지 파일 경로 설정
+        image_path1 = r"erd/ERD.png"
+        image_path2 = r"erd/colExp.png"
+
+        # 이미지 열기
+        image1 = Image.open(image_path1)
+        image2 = Image.open(image_path2)
+
+        # 이미지 스트림릿 앱에 표시
+        st.image(image1, caption='ERD Diagram', use_column_width=True)   
+        st.image(image2, caption='', use_column_width=True)   
+
     def run(self):
         if st.session_state.page == "HOME":
             self.home()
         elif st.session_state.page == "전국 자동차 등록현황":
             self.show_car_registration_status()
-        elif st.session_state.page == "FAQ 조회시스템":
+        elif st.session_state.page == "FAQ 조회":
             self.show_faq_system()
+        elif st.session_state.page == "ERD":
+            self.show_erd()
 
         st.components.v1.html(scroll_script, height=0)
 
+
+
+    ### 함수
     def sum_total_car(self):
         db_user = "root"
         db_password = ""
@@ -1133,7 +1153,7 @@ class Ui:
         query_car = "SELECT SUM(total_van) FROM van;"
         with engine.connect() as connection:
             return pd.read_sql(query_car, connection)
-# 전체 관용 차량정보 수집
+    # 전체 관용 차량정보 수집
     def gov_total_car(self):
         db_user = "root"
         db_password = ""
@@ -1186,7 +1206,7 @@ class Ui:
         query_car = "SELECT SUM(gov_van) FROM van;"
         with engine.connect() as connection:
             return pd.read_sql(query_car, connection)
-# 전국 영업용 자동차 등록 대수
+    # 전국 영업용 자동차 등록 대수
     def com_total_car(self):
         db_user = "root"
         db_password = ""
@@ -1239,7 +1259,7 @@ class Ui:
         query_car = "SELECT SUM(commercial_van) FROM van;"
         with engine.connect() as connection:
             return pd.read_sql(query_car, connection)
-# 전국 자가용 자동차 등록 대수
+    # 전국 자가용 자동차 등록 대수
     def pri_total_car(self):
         db_user = "root"
         db_password = ""
@@ -1292,7 +1312,7 @@ class Ui:
         query_car = "SELECT SUM(private_van) FROM van;"
         with engine.connect() as connection:
             return pd.read_sql(query_car, connection)
-# 도시 리스트 가져오기
+    # 도시 리스트 가져오기
     def get_city_list(self):
         db_user = "root"
         db_password = ""
@@ -1306,7 +1326,7 @@ class Ui:
         query_car = "SELECT NAME FROM region;;"
         with engine.connect() as connection:
             return pd.read_sql(query_car, connection)
-# 도시 차종별 대수 가져오기
+    # 도시 차종별 대수 가져오기
     def get_citys_car_list(self, city_name):
         db_user = "root"
         db_password = ""
