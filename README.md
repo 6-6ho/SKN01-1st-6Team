@@ -3,7 +3,7 @@
 </div>
 <div align="center">
     <h2><span style="color:pink;">이민재</span> 민경원 허우영 송준호</h2>
-    <div><strong>단위 프로젝트 주제는 전국 자동차 등록 현황 및 기업 FAQ 조회 시스템 입니다!</div></strog>
+    <div><strong>단위 프로젝트 주제는 전국 자동차 등록 현황 및 기업 FAQ 조회 시스템 입니다!<br></div></strog>
 </div>
 <div align="center">
     <h2>🛠️ Tech Stacks</h2>
@@ -19,6 +19,8 @@
     </div>
 </div>
 <br><br>
+
+---
 
 # 👋 시작하기 
 
@@ -58,6 +60,7 @@ streamlit run runner.py
 ```
 streamlit을 실행합니다.
 
+---
 
 # 📋 ERD
 
