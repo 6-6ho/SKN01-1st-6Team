@@ -26,21 +26,21 @@
 
 이 프로젝트를 시작하려면 아래의 지침을 따르세요.
 
-# 프로젝트 클론
+### 프로젝트 클론
 
 ```
 git clone https://github.com/SKNETWORKS-FAMILY-AICAMP/SKN01-1st-6Team.git
 cd SKN01-1st-6Team
 ```
 
-# Requirements
+### Requirements
 
 ```
 pip install -r requirements.txt
 ```
 필요 모듈을 설치합니다.
 
-# 실행
+### 실행
 
 ```
 if __name__ == "__main__":
