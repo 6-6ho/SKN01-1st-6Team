@@ -8,21 +8,19 @@
 <div align="center">
     <h2>🛠️ Tech Stacks</h2>
     <div>
-        <img src="https://img.shields.io/badge/Windows11-0078D6?style=flat&logo=Windows10&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Visualstudio-5C2D91?style=flat&logo=Visualstudio&logoColor=white"/>
         <img src="https://img.shields.io/badge/python-3776AB?style=flat&logo=python&logoColor=white"/>
         <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white"/>
         <img src="https://img.shields.io/badge/Discord-5865F2?style=flat&logo=Discord&logoColor=white">
         <img src="https://img.shields.io/badge/Github-181717?style=flat&logo=Github&logoColor=white">
         <br/>
-        <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white">
-        <img src="https://img.shields.io/badge/Visualstudio-5C2D91?style=flat&logo=Visualstudio&logoColor=white"/>
+        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=flat&logo=VisualStudioCode&logoColor=white"/>
         <img src="https://img.shields.io/badge/Selenium-43B02A?style=flat&logo=Selenium&logoColor=white"/>
         <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=flat&logo=Streamlit&logoColor=white"/>
     </div>
 </div>
+<br><br>
 
-# 시작하기
+# 👋 시작하기 
 
 이 프로젝트를 시작하려면 아래의 지침을 따르세요.
 
@@ -61,7 +59,7 @@ streamlit run runner.py
 streamlit을 실행합니다.
 
 
-# ERD
+# 📋 ERD
 
 ![ERD](img/ERD.png)
 
