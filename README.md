@@ -40,7 +40,6 @@ cd SKN01-1st-6Team
 ```
 pip install -r requirements.txt
 ```
-필요 모듈을 설치합니다.
 
 
 ## 실행
@@ -52,13 +51,11 @@ if __name__ == "__main__":
     # insert_db()
     Ui("Crawling Project (SKN01-1st-6Team)").run()
 ```
-
-크롤링과 결과 파일들을 db에 넣는 과정을 진행해야합니다.
+주석을 제거하고 크롤링과 결과 파일들을 db에 넣는 과정을 진행해야합니다.
 
 ```
 streamlit run runner.py
 ```
-streamlit을 실행합니다.
 
 ---
 
