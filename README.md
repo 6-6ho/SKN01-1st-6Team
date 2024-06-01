@@ -71,4 +71,4 @@ streamlit run runner.py
 
 ## 🔍 테이블 설명
 
-![table](erd/colEXP.png)
+![table](erd/colExp.png)
