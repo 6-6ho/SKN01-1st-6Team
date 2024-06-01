@@ -71,46 +71,4 @@ streamlit run runner.py
 
 ## 🔍 테이블 설명
 
-1. **Region 테이블**:
-   - **_id_**: 기본 키, 자동 증가
-   - **_name_**: 지역명, 고유값, NOT NULL
-
-2. **Car 테이블**:
-   - **_id_**: 기본 키, 자동 증가
-   - **_region_id_**: region 테이블의 외래키
-   - **_district_**: 시군구명
-   - **_gov_car_**: 관용차 수
-   - **_private_car_**: 자가용 수
-   - **_commercial_car_**: 영업용 수
-   - **_total_car_**: 총계
-
-3. **Van 테이블**:
-   - **_id_**: 기본 키, 자동 증가
-   - **_region_id_**: region 테이블의 외래키
-   - **_district_**: 시군구명
-   - **_gov_van_**: 관용차 수
-   - **_private_van_**: 자가용 수
-   - **_commercial_van_**: 영업용 수
-   - **_total_van_**: 총계
-
-4. **Truck 테이블**:
-   - **_id_**: 기본 키, 자동 증가
-   - **_region_id_**: region 테이블의 외래키
-   - **_district_**: 시군구명
-   - **_gov_truck_**: 관용차 수
-   - **_private_truck_**: 자가용 수
-   - **_commercial_truck_**: 영업용 수
-   - **_total_truck_**: 총계
-
-5. **SpecialVehicle 테이블**:
-   - **_id_**: 기본 키, 자동 증가
-   - **_region_id_**: region 테이블의 외래키
-   - **_district_**: 시군구명
-   - **_gov_special_**: 관용차 수
-   - **_private_special_**: 자가용 수
-   - **_commercial_special_**: 영업용 수
-   - **_total_special_**: 총계
-
-6. **FAQ 테이블**:
-    - **_title_**: FAQ 제목
-    - **_content_**: FAQ 내용
+![table](erd/colEXP.png)
