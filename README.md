@@ -66,7 +66,7 @@ streamlit run runner.py
 
 # 📋 ERD
 
-![ERD](img/ERD.png)
+![ERD](erd/ERD.png)
 
 
 ## 🔍 테이블 설명
